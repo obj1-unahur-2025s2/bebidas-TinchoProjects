@@ -1,9 +1,31 @@
-object pepita {
-  var energy = 100
+object tito {
+  const peso = 70
+  var rendimiento = 1
+  var sustancia = terere
+  method peso() = peso
+  method rendimiento() = rendimiento
+  method velocidad() = sustancia * 490
 
-  method energy() = energy
+  method beber(bebida , dosis) {
+    sustancia = bebida
+    rendimiento = rendimiento * bebida.rendimiento(dosis)
+    }
+}
 
-  method fly(minutes) {
-    energy = energy - minutes * 3
+object whisky {
+  method rendimiento(dosis){
+    return 0.9 ** dosis
+  }
+}
+
+object terere {
+  method rendimiento(dosis){
+    return (0.1 ** dosis).max(1)
+  }
+}
+
+object cianuro {
+  method rendimiento(dosis){
+    return 0
   }
 }
