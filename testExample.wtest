@@ -1,9 +1,27 @@
-import example.pepita
+import example.*
 
-describe "group of tests for pepita" {
-
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+describe "Grupo de tests de rendimiento con cada sustancia" {
+  test "Tito toma una dosis de whisky para establecer la medida muestra para las siguientes pruebas con esa bebida" {
+    tito.beber(whisky , 1)
+    assert.equals(0.9 , tito.rendimiento())
   }
 
+  test "Tito bebe 2 dosis de whisky y realiza una serie de ejercicios para establecer los valores de su rendimiento y belocidad actual bajo sus efectos" {
+    tito.beber(whisky , 2)
+    assert.that(tito.rendimiento() == 0.81)
+    assert.equals(5.67 , tito.velocidad())
+  }
+
+  test "tito ahora realiza una serie de ejercicios para tener la medición de control antes de la prueba. Luego bebe 20cm3 de tereré para evaluar su rendimiento y velocidad"{
+    assert.equals(1 , tito.rendimiento())
+    assert.equals(7 , tito.velocidad())
+    tito.beber(terere , 20)
+    assert.that(tito.rendimiento() == 2)
+    assert.that(tito.velocidad() == 14)
+  }
+
+  test "En esta última prueba a tito le dan solo una dosis de una bebida **misteriosa** con la excusa que quieren evitar el efecto placebo en tito. Pero en realidad le estan dando cianuro para ver si de verdad **afecta tanto como dicen** al cuerpo humano esta sustancia" {
+    tito.beber(cianuro , 1)
+    assert.notThat(tito.rendimiento() == 1)
+  }
 }

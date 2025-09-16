@@ -4,11 +4,11 @@ object tito {
   var sustancia = terere
   method peso() = peso
   method rendimiento() = rendimiento
-  method velocidad() = sustancia * 490
+  method velocidad() = (rendimiento * 490) / peso
 
   method beber(bebida , dosis) {
     sustancia = bebida
-    rendimiento = rendimiento * bebida.rendimiento(dosis)
+    rendimiento *= bebida.rendimiento(dosis)
     }
 }
 
@@ -20,7 +20,7 @@ object whisky {
 
 object terere {
   method rendimiento(dosis){
-    return (0.1 ** dosis).max(1)
+    return (0.1 * dosis).max(1)
   }
 }
 
